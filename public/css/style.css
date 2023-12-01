@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+    width: max-content;
+}
+
+label {
+    margin: 10px;
+}
+
+#container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#myImage {
+    width: 200px;
+    height: 200px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+#margin-left {
+    margin-left: 10px;
+}
+
+#colorPicker {
+    margin-bottom: 20px;
+}
+
+#dropdownList,
+#checkboxes,
+#layerColorPickers {
+    margin-bottom: 20px;
+}
+
+.layerColorPicker {
+    margin-right: 10px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#imageUrl,
+#colorValues {
+    margin-top: 20px;
+    font-size: 14px;
+    width: 400px;
+}

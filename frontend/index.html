@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connector selector</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="center">Connector selector</h1>
+        <div>
+            <img id="myImage" src="" alt="Selected connector image" class="center">
+        </div>
+        <div>
+            <label for="dropdownList">Select connector:</label>
+            <select id="dropdownList" name="dropdownList"></select>
+
+        </div>
+        <h3>Layers</h3>
+        <div id="layerColorPickers"></div>
+        
+        <h3>Overlay symbols</h3>
+        <div id="checkboxes"></div>
+        <div>
+            <label>Background</label>
+            <input type="checkbox" id="bg-checkbox" class="marginLeft">
+            <input id="bg-color" type="color">
+        </div>
+        <div>
+            <textarea rows="3" value="" id="imageUrl"></textarea>
+        </div>
+        <div>
+            <button onclick="copyUrl()">Copy</button>
+        </div>
+    </div>
+
+    <script src="/scripts/script.js"></script>
+</body>
+
+</html>
