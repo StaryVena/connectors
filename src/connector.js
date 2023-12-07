@@ -1,5 +1,6 @@
 'use strict'
 
+const logger = require('./logger');
 const sharp = require("sharp");
 const fs = require('fs').promises;
 const fsa = require('fs');
@@ -18,12 +19,19 @@ const common_images = common_images_files.map(x => {
 });
 const connectorList = fsa.readdirSync(imagesRootDir).filter(val => val !== commonDir);
 
+const cache = process.env.CONNECTORS_IMAGE_CACHE_MB;
+
+if(cache){
+  logger.info(`Setting sharm cache memory limit to ${cache} MB.`)
+  sharp.cache( { memory: cache } );
+}
+
+
 // TODO documentation
 // TODO check input - connector does not exists, wrong extension
 // TODO error handling
 // TODO unit tests
 // TODO separate method for file handling
-// TODO add file caching
 // TODO add support for more extensions
 // TODO add image directory wather for realoding images - https://github.com/paulmillr/chokidar
 

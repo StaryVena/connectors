@@ -8,10 +8,14 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
+            "outputCapture": "std",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\src\\index.js"
+            "program": "${workspaceFolder}\\src\\index.js",
+            "env": {
+                "CONNECTORS_IMAGE_CACHE_MB": "20"
+              }
         }
     ]
 }
