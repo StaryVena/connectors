@@ -37,7 +37,6 @@ if (cache) {
 }
 
 // TODO documentation
-// TODO check input - connector does not exists, wrong extension
 // TODO unit tests
 // TODO add support for more extensions/image formats
 // TODO docker container
