@@ -17,6 +17,8 @@ const morganMiddleware = morgan(
   );
 app.use(morganMiddleware);
 
+
+
 const projectRoot = path.dirname(__dirname);
 const publicDir = path.join(projectRoot, "public");
 logger.info(`Public directory path is ${publicDir}`);
@@ -31,6 +33,10 @@ app.get('/', (req, res) => {
 app.get('/api/v1/connector/:name.:ext', connector_api.view);
 app.get('/api/v1/connector/:name/:layer.:ext', connector_api.layer);
 app.get('/api/v1/connectors.:ext', connector_api.list);
+app.get('*', function(req, res){
+    res.send('what???', 404);
+  });
 
 
 app.listen(port, () => logger.info("Listening on port " + port+"."));
+
