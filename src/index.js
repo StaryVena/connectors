@@ -34,7 +34,7 @@ app.get('/api/v1/connector/:name.:ext', connector_api.view);
 app.get('/api/v1/connector/:name/:layer.:ext', connector_api.layer);
 app.get('/api/v1/connectors.:ext', connector_api.list);
 app.get('*', function(req, res){
-    res.send('what???', 404);
+    res.sendStatus(404);
   });
 
 
