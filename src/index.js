@@ -40,3 +40,4 @@ app.get('*', function(req, res){
 
 app.listen(port, () => logger.info("Listening on port " + port+"."));
 
+module.exports = app;

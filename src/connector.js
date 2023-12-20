@@ -17,10 +17,13 @@ const imagesRootDir = "./images/"
 const dirsList = { connectorList: [], commonList: [] };
 
 const cache = process.env.CONNECTORS_IMAGE_CACHE_MB;
-
+const abs = path.resolve(imagesRootDir);
+// init connectorList before chokidar.watch is done
+dirsList.connectorList = fsa.readdirSync(imagesRootDir).filter(val => val !== commonDirName);
+logger.info(`Image path is: ${path.resolve(imagesRootDir)}`);
 // Watch file system for changes
-chokidar.watch(imagesRootDir).on('all', (event, dir) => {
-  console.log(event, dir);
+chokidar.watch(imagesRootDir).on('all', async (event, dir) => {
+  logger.info(event, dir);
   let commonPath = path.join(imagesRootDir, commonDirName);
   let commonImagesFiles = fsa.readdirSync(commonPath)
   dirsList.commonList = commonImagesFiles.map(x => {
@@ -30,16 +33,17 @@ chokidar.watch(imagesRootDir).on('all', (event, dir) => {
 });
 
 
-
 if (cache) {
   logger.info(`Setting sharm cache memory limit to ${cache} MB.`)
   sharp.cache({ memory: cache });
 }
 
-// TODO documentation
 // TODO unit tests
-// TODO add support for more extensions/image formats
 // TODO docker container
+// CD/CI
+// TODO documentation
+// TODO add support for more extensions/image formats
+
 
 exports.view = function (req, res, next) {
   try {
@@ -165,7 +169,7 @@ async function compositeImages(imagePaths, rgbColors, extension, background, nex
 
     return finalImageBuffer;
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     throw error;
   }
 }
@@ -181,3 +185,5 @@ function hexToRgb(hex) {
     b: parseInt(result[3], 16)
   };
 }
+
+exports.compositeImages = compositeImages;
