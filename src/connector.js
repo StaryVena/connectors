@@ -38,12 +38,10 @@ if (cache) {
   sharp.cache({ memory: cache });
 }
 
-// TODO unit tests
 // TODO docker container
 // CD/CI
 // TODO documentation
 // TODO add support for more extensions/image formats
-
 
 exports.view = function (req, res, next) {
   try {
