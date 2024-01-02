@@ -5,7 +5,7 @@
   <img src="docs/images/logo1.png">
   <img src="docs/images/logo2.png">
   <img src="docs/images/logo3.png">
-  <img src="docs/images/logo5.png">
+  <img src="docs/images/logo4.png">
 </p>
 Image generator for (mostly notwork) connectors like RJ45.
 
